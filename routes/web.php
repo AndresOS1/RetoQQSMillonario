@@ -16,7 +16,7 @@ use App\Http\Controllers\PreguntasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homeMillonario');
 });
 
 Auth::routes();
