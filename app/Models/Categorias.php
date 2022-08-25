@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Categorias extends Model
+{
+    use HasFactory;
+
+
+    protected $table  = "categorias";
+
+    protected $primaryKey = "id_categorias";
+
+
+    protected $fillable = ['nombreCategoria','niveles_id'];
+
+    protected $hidden = ['id_categorias'];
+}
