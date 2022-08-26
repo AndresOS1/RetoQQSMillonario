@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PreguntasController;
+use App\Http\Controllers\RespuestasController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\NivelesController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +30,43 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+//Rutas Preguntas
 
 Route::get('/Preguntas.index',[PreguntasController::class,'index'])->name('Preguntas.index');
 Route::get('/Preguntas.create',[PreguntasController::class,'create'])->name('Preguntas.create');
 Route::post('/Preguntas.store',[PreguntasController::class,'store'])->name('Preguntas.store');
 Route::get('/editarpregunta/{id}',[PreguntasController::class,'edit'])->name('editarpregunta');
-Route::put('/actualizarpregunta/{id}',[PreguntasController::class,'update'])->name('Preguntas.uptate');
+Route::put('/actualizarpregunta/{id}',[PreguntasController::class,'update'])->name('Preguntas.update');
 Route::delete('/eliminarpregunta/{id}',[PreguntasController::class,'destroy'])->name('eliminarpregunta');
+
+
+
+//Rutas Respuestas 
+
+Route::get('/Respuestas.index',[RespuestasController::class,'index'])->name('Respuestas.index');
+Route::get('/Respuestas.create',[RespuestasController::class,'create'])->name('Respuestas.create');
+Route::post('/Respuestas.store',[RespuestasController::class,'store'])->name('Respuestas.store');
+Route::get('/editarrespuesta/{id}',[RespuestasController::class,'edit'])->name('editarrespuesta');
+Route::put('/actualizarrespuesta/{id}',[RespuestasController::class,'update'])->name('Respuestas.update');
+Route::delete('/eliminarrespuesta/{id}',[RespuestasController::class,'destroy'])->name('eliminarrespuesta');
+
+
+//Rutas Categorias 
+
+Route::get('/Categorias.index',[CategoriasController::class,'index'])->name('Categorias.index');
+Route::get('/Categorias.create',[CategoriasController::class,'create'])->name('Categorias.create');
+Route::post('/Categorias.store',[CategoriasController::class,'store'])->name('Categorias.store');
+Route::get('/editarcategoria/{id}',[CategoriasController::class,'edit'])->name('editarcategoria');
+Route::put('/actualizarcategoria/{id}',[CategoriasController::class,'update'])->name('Categorias.update');
+Route::delete('/eliminarcategoria/{id}',[CategoriasController::class,'destroy'])->name('eliminarcategoria');
+
+
+
+//Rutas Niveles
+
+Route::get('/Niveles.index',[NivelesController::class,'index'])->name('Niveles.index');
+Route::get('/Niveles.create',[NivelesController::class,'create'])->name('Niveles.create');
+Route::post('/Niveles.store',[NivelesController::class,'store'])->name('Niveles.store');
+Route::get('/editarnivel/{id}',[NivelesController::class,'edit'])->name('editarnivel');
+Route::put('/actualizarnivel/{id}',[NivelesController::class,'update'])->name('Niveles.update');
+Route::delete('/eliminarnivel/{id}',[NivelesController::class,'destroy'])->name('eliminarnivel');

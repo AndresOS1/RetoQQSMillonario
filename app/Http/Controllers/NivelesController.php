@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Preguntas;
+use App\Models\Niveles;
 
-class PreguntasController extends Controller
+class NivelesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class PreguntasController extends Controller
      */
     public function index()
     {
-        
-        $preguntas::all();
-
-        return view('Preguntas.index', compact('preguntas'));
+        $niveles = Niveles::all();
+        return view('Niveles.index', compact('niveles'));
     }
 
     /**
@@ -29,7 +27,7 @@ class PreguntasController extends Controller
      */
     public function create()
     {
-        return view('Preguntas.create');
+        return view('Niveles.create');
     }
 
     /**
@@ -40,30 +38,27 @@ class PreguntasController extends Controller
      */
     public function store(Request $request)
     {
-         $validation=Validator::make($request->all(),[
-            
-                     'pregunta'=>'required'
-         
+        
+        $validator = Validator::make($request->all(),[
+            'nivel'   =>   'required',
         ]);
 
 
-        if(!$validation->fails()){
-            $pregunta=new Preguntas;
-            $pregunta->pregunta = $request->pregunta;
-            $pregunta->save();
-            if($pregunta){
-                Alert::success('Pregunta Registrada con Exito');
-                return redirect()->route('Preguntas.index');
+        if(!$validator->fails()){
+            $nivel = new Niveles;
+            $nivel->nivel = $request->nivel;
+            $nivel->save();
+            if($nivel){
+                Alert::success('Nivel Registrado con Exito');
+                return redirect()->route('Niveles.index');
             }else{
                 Alert::error('Error');
-                return redirect()->route('Preguntas.create');
+                return redirect()->route('Niveles.create');
             }
         }else{
-
             Alert::error('Falta un campo');
-            return redirect()->route('Preguntas.create');
+            return redirect()->route('Niveles.create');
         }
-
     }
 
     /**
@@ -74,7 +69,7 @@ class PreguntasController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -85,8 +80,9 @@ class PreguntasController extends Controller
      */
     public function edit($id)
     {
-        $pregunta = Preguntas::find($id);
-        return view('Preguntas.edit', compact('pregunta'));
+        $nivel = Niveles::finde($id);
+
+        return view('Niveles.edit', compact('nivel'));
     }
 
     /**
@@ -98,28 +94,26 @@ class PreguntasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validation=Validator::make($request->all(),[
-            
-                     'pregunta'=>'required'
          
+        $validator = Validator::make($request->all(),[
+            'nivel'   =>   'required',
         ]);
 
 
-        if(!$validation->fails()){
-            $pregunta=Preguntas::find($id);
-            $pregunta->pregunta = $request->pregunta;
-            $pregunta->save();
-            if($pregunta){
-                Alert::success('Pregunta Actualizada con Exito');
-                return redirect()->route('Preguntas.index');
+        if(!$validator->fails()){
+            $nivel = Niveles::find($id);
+            $nivel->nivel = $request->nivel;
+            $nivel->save();
+            if($nivel){
+                Alert::success('Nivel Actualizado Correctamente');
+                return redirect()->route('Niveles.index');
             }else{
                 Alert::error('Error');
-                return redirect()->route('Preguntas.index');
+                return redirect()->route('Niveles.create');
             }
         }else{
-
             Alert::error('Falta un campo');
-            return redirect()->route('Preguntas.index');
+            return redirect()->route('Niveles.create');
         }
     }
 
@@ -131,9 +125,8 @@ class PreguntasController extends Controller
      */
     public function destroy($id)
     {
-        $pregunta= Preguntas::findOrFile($id);
-        $pregunta->delete();
-        Alert::warning('Pregunta Elimindada Correctamente');
-        return redirect()->route('Preguntas.index');
+        $nivel = Niveles::findOrFail($id);
+        $nivel->delete();
+        Alert::warning('Nivel Eliminado Correctamente');
     }
 }
