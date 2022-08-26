@@ -27,7 +27,6 @@
                 @endif
                 @endauth
               @endif
-
             </div>
             <video autoplay muted loop id="videoBG" class="d-fluid">
               <source src="/video/4K_24.mp4" type="video/mp4">

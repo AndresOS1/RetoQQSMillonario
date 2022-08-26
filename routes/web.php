@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homeMillonario');
 });
+Route::get('/categorias', function () {
+    return view('categorias.cuestion');
+});
 
 Auth::routes();
 
