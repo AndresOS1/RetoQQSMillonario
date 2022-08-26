@@ -13,8 +13,8 @@
     <div class="col-12 d-flex">
         <nav class="col-12 d-flex flex-row justify-content-end bg-transparent gap-2 shadow-lg">
                  <div class="col-12 d-flex flex-row justify-content-end gap-2 p-2">
-                    <p class="text-warning">Juan camilo</p>
-                    <p class="text-warning bi bi-currency-bitcoin">1231231231</p>
+                    <p class="text-warning">{{Auth()->user()->name}}</p>
+                    <p class="text-warning bi bi-currency-bitcoin">0</p>
                  </div>
                 <video autoplay muted loop id="videoBG" class="d-fluid">
                     <source src="/video/4K_24.mp4" type="video/mp4">

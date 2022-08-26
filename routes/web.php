@@ -24,9 +24,7 @@ use App\Http\Controllers\NivelesController;
 Route::get('/', function () {
     return view('homeMillonario');
 });
-Route::get('/categorias', function () {
-    return view('categorias.cuestion');
-});
+Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();
 

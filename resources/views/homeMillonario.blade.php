@@ -19,7 +19,7 @@
             <div class="body col-12 d-flex justify-content-center aligin-items-center gap-3">
               @if (Route::has('login'))
                 @auth
-                  <button class="btn btn-primary">Play</button>
+                  <a class="btn btn-primary" href="{{route('playCategoria')}}">Play</a>
                 @else
                    <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
                 @if (Route::has('register'))

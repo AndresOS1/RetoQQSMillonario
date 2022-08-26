@@ -24,6 +24,9 @@ class CategoriasController extends Controller
     
         return view('Categorias.index', compact('categorias','niveles'));
     }
+    public function playCategoria(){
+        return view('categorias.cuestion');
+    }
 
     /**
      * Show the form for creating a new resource.
