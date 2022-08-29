@@ -13,9 +13,9 @@
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                     <select  class="form-select" name="niveles_id">
-                        <option value="{{$niveles->id}}"selected>{{$niveles->nivel}}</option>
+                        {{-- <option value="{{$niveles->id}}"selected>{{$niveles->nivel}}</option> --}}
                         @foreach($niveles as $n)
-                           <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
+                           <option value="">{{$n->nivel}}</option>
                         @endforeach
                     </select>
                 </div>
