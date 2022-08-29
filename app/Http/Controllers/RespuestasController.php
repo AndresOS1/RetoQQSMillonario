@@ -31,7 +31,7 @@ class RespuestasController extends Controller
     public function create()
     {
         $preguntas = Preguntas::all();
-        return view('Respuestas.create', compact('preguntas'));
+        return view('Admin.preguntas.createRespuesta',compact('preguntas'));
     }
 
     /**

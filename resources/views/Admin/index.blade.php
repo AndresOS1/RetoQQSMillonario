@@ -22,6 +22,11 @@
              <a href="#" class="btn w-100 justify-content-center bi bi-question-circle-fill text-white">
                 Preguntas
              </a>
+             
+             <form class="d-flex w-100 h-50 align-items-end justify-content-center pb-2" action="{{route('logout') }}" method="POST">
+                @csrf
+                <a class="bi bi-door-closed-fill fs-1 text-white" href=""></a>
+             </form>
 
 
         </div>
