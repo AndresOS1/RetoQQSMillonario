@@ -12,10 +12,10 @@
                        <input type="text" class="form-control" placeholder="nombre de la categora" name="nombreCategoria">
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                    <select  class="form-select" name="niveles_id">
+                    <select   class="form-select" name="niveles_id">
                         <option value=""selected>seleccione el nivel de la categoria</option>
                         @foreach($niveles as $n)
-                           <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
+                           <option value="{{$n->id}}">{{$n->nivel}}</option>
                         @endforeach
                     </select>
                 </div>

@@ -13,10 +13,10 @@
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                     <select  class="form-select" name="niveles_id">
-                        <option value="{{$niveles->id}}"selected>{{$niveles->nivel}}</option>
-                        @foreach($niveles as $n)
-                           <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
-                        @endforeach
+                        <option value=""selected>seleccione el nivel</option>
+                        @foreach($nivel as $n)
+                           <option value=""></option>
+                        @endforeach 
                     </select>
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
