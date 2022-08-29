@@ -5,3 +5,28 @@
   background-color: blueviolet;
   border-style: none;
 }
+.casilla{ 
+  background-image: url('../img/casilla.png');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+.link{
+  color: aliceblue;
+  text-decoration: none;
+  
+}
+.link:hover{
+    color: rgb(159, 39, 193);
+    text-shadow: 1px 1px 6px rgb(223, 55, 178);
+}
+.flecha{
+  font-size: 3rem;
+  color: #fff;
+  
+}
+.flecha:hover{
+  color: rgb(159, 39, 193);
+  text-shadow: 1px 1px 6px rgb(223, 55, 178);
+}
+

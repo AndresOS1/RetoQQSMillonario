@@ -24,8 +24,12 @@ class CategoriasController extends Controller
     
         return view('Categorias.index', compact('categorias','niveles'));
     }
-    public function playCategoria(){
-        return view('categorias.cuestion');
+    public function playCategoria(){       
+        $categorias=Categorias::select('nombreCategoria')
+                        ->join('niveles','niveles.id_niveles','=','categorias.niveles_id')
+                        ->where('niveles.nivel','=',1)->get();
+
+        return view('categorias.cuestion',compact('categorias'));
     }
 
     /**

@@ -12,9 +12,9 @@
       <section class="col-12 d-flex flex-column">
             
             <div class="Title col-12 d-flex flex-column text-white align-items-center justify-content-center">
-                <h1 class="" style="font-size:5rem; ">WHO NEEDS </h1> 
-                <h1 style="font-size:5rem; ">TO BE A</h1>  
-                <h1 style="font-size:5rem; "><strong>MILLIONARIE?</strong></h1>
+                <h1 class="opacity-75" style="font-size:5rem; ">WHO NEEDS </h1> 
+                <h1 style="font-size:5rem; " class="opacity-75">TO BE A</h1>  
+                <h1 style="font-size:5rem; " class="opacity-75"><strong>MILLIONARIE?</strong></h1>
             </div>
             <div class="body col-12 d-flex justify-content-center aligin-items-center gap-3">
               @if (Route::has('login'))
@@ -28,9 +28,12 @@
                 @endauth
               @endif
             </div>
-            <video autoplay muted loop id="videoBG" class="d-fluid">
-              <source src="/video/4K_24.mp4" type="video/mp4">
+            <video onloadedmetadata="this.muted=true" autoplay loop id="videoBG">
+              <source src="video/Comp_8.mp4" type="video/mp4">
             </video>
+             <audio controls  loop>
+                <source src="{{asset('sound/millonario.mp3')}}" type="audio/mpeg">
+             </audio>
       </section>
 
 

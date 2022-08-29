@@ -17,7 +17,7 @@
                     <p class="text-warning bi bi-currency-bitcoin">0</p>
                  </div>
                 <video autoplay muted loop id="videoBG" class="d-fluid">
-                    <source src="/video/4K_24.mp4" type="video/mp4">
+                    <source src="video/Comp_8.mp4" type="video/mp4">
                 </video>
         </nav>
 
