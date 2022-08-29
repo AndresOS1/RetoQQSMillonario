@@ -99,7 +99,7 @@ class CategoriasController extends Controller
         
         $nivel = Niveles::find($id);
 
-        return view('Categorias.edit', compact('nivel'));
+        return view('Admin.categoria.edit', compact('nivel'));
     }
 
     /**
