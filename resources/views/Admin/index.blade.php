@@ -38,7 +38,7 @@
                 <i class="bi bi-person-badge-fill"></i>
             </div>
             <div class="col-12 border-2 p-2 shadow-lg">
-
+                 @yield('content')
             </div>
         </div>
 
