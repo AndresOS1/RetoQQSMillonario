@@ -12,9 +12,9 @@
       <section class="col-12 d-flex flex-column">
             
             <div class="Title col-12 d-flex flex-column text-white align-items-center justify-content-center">
-                <h1 class="opacity-75" style="font-size:5rem; ">WHO NEEDS </h1> 
-                <h1 style="font-size:5rem; " class="opacity-75">TO BE A</h1>  
-                <h1 style="font-size:5rem; " class="opacity-75"><strong>MILLIONARIE?</strong></h1>
+                <h1 class="opacity-75" style="font-size:5vw; ">WHO NEEDS </h1> 
+                <h1 style="font-size:5vw;" class="opacity-75">TO BE A</h1>  
+                <h1 style="font-size:5vw;" class="opacity-75"><strong>MILLIONARIE?</strong></h1>
             </div>
             <div class="body col-12 d-flex justify-content-center aligin-items-center gap-3">
               @if (Route::has('login'))
