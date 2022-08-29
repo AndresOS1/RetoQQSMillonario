@@ -31,7 +31,7 @@
             <video onloadedmetadata="this.muted=true" autoplay loop id="videoBG">
               <source src="video/Comp_8.mp4" type="video/mp4">
             </video>
-             <audio controls  loop>
+             <audio autoplay  loop>
                 <source src="{{asset('sound/millonario.mp3')}}" type="audio/mpeg">
              </audio>
       </section>

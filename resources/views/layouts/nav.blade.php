@@ -19,6 +19,9 @@
                 <video autoplay muted loop id="videoBG" class="d-fluid">
                     <source src="video/Comp_8.mp4" type="video/mp4">
                 </video>
+                <audio autoplay  loop>
+                  <source src="{{asset('sound/millonario.mp3')}}" type="audio/mpeg">
+               </audio>
         </nav>
 
     </div>
