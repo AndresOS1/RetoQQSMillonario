@@ -10,5 +10,17 @@
                 <th>Nivel</th>
             </tr>
         </thead>
+        <tbody>
+                @foreach($categorias as $c)
+                  <tr>
+                    <td>{{ $c->id_categorias}}</td>
+                     <td>{{ $c->nombreCategoria}}</td> 
+                     @foreach ($niveles as $n)
+                       @if ($categorias->niveles_id == $n->id_nivles)
+                          <td>{{ $n->nombre }}</td>
+                        @endif
+                    @endforeach
+                @endforeach
+        </tbody>
     </table>
 </div>

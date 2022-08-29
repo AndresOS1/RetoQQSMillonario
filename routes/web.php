@@ -61,7 +61,7 @@ Route::get('/Categorias.index',[CategoriasController::class,'index'])->name('Cat
 Route::get('/Categorias.create',[CategoriasController::class,'create'])->name('Categorias.create');
 Route::post('/Categorias.store',[CategoriasController::class,'store'])->name('Categorias.store');
 Route::get('/editarcategoria/{id}',[CategoriasController::class,'edit'])->name('editarcategoria');
-Route::put('/actualizarcategoria/{id}',[CategoriasController::class,'update'])->name('Categorias.update');
+Route::put('/actualizarcategoria/{id}',[CategoriasController::class,'update'])->name('Categoriasupdate');
 Route::delete('/eliminarcategoria/{id}',[CategoriasController::class,'destroy'])->name('eliminarcategoria');
 
 

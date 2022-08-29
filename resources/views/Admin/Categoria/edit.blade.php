@@ -3,7 +3,8 @@
 @include('sweetalert::alert')
 <div class="col-12 d-flex justify-content-center aligin-items-center">
     <div class="col-5 justify-content-center d-flex gap-3">
-        <form action="{{'Categorias.update'}}" method="POST">
+        <form action="{{route('Categoriasupdate',$categorias->id_categorias)}}" method="POST">
+            @method('PUT')
             @csrf
                 <div class="w-100 d-flex justify-content-center aligin-items-center">
                        <h1>Editar categoria</h1>     
@@ -13,7 +14,7 @@
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                     <select  class="form-select" name="niveles_id">
-                        <option value="{{$niveles->id}}"selected>{{$niveles->nivel}}</option>
+                        <option value="{{$categorias->niveles_id}}"selected>{{$categorias->niveles_id}}</option>
                         @foreach($niveles as $n)
                            <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
                         @endforeach
