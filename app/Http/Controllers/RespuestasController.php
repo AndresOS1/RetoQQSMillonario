@@ -91,8 +91,8 @@ class RespuestasController extends Controller
     public function edit($id)
     {
         $respuesta = Respuestas::find($id);
-        $preguntas = Respuestas::find($id);
-        return view('Respuestas.edit', compact('respuesta'));
+        $preguntas = Respuestas::all();
+        return view('Respuestas.edit', compact('respuesta', 'preguntas'));  
     }
 
     /**
