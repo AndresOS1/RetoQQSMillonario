@@ -33,11 +33,11 @@
              </a>
         </div>
         <div class="col-md-9 " style="height: 100vh;">
-            <div class="col-12 d-flex justify-content-end p-2 gap-3">
+            <div class="col-12 d-flex justify-content-end p-2 gap-3 ">
                 <p>{{auth()->user()->name}}</p>
                 <i class="bi bi-person-badge-fill"></i>
             </div>
-            <div class="col-12 border-2 p-2 shadow-lg">
+            <div class="col-12 border-2 p-2 shadow-lg h-75">
                  @yield('content')
             </div>
         </div>
