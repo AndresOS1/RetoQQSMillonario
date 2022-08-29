@@ -1,7 +1,10 @@
 @extends('Admin.index')
 @section('content')
 @include('sweetalert::alert')
-<div class="col-12 d-flex justify-content-center aligin-items-center">
+<div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
+    <div class="w-100 d-flex justify-content-start">
+        <a href="{{route('Categorias.index')}}" class="btn bi bi-arrow-left-circle-fill fs-1"></a>
+    </div>
     <div class="col-5 justify-content-center d-flex gap-3">
         <form action="{{route('Categoriasupdate',$categorias->id_categorias)}}" method="POST">
             @method('PUT')

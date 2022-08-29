@@ -1,9 +1,13 @@
 @extends('Admin.index')
 @section('content')
 @include('sweetalert::alert')
-<div class="col-12 d-flex justify-content-center aligin-items-center">
-    <div class="col-5 justify-content-center d-flex gap-3">
-        <form action="{{'Categorias.store'}}" method="POST">
+<div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
+    <div class="w-100 d-flex justify-content-start">
+        <a href="{{route('Categorias.index')}}" class="btn bi bi-arrow-left-circle-fill fs-1"></a>
+    </div>
+    <div class="col-5 justify-content-center d-flex gap-3 flex-column   ">
+
+        <form action="{{'Categorias.store'}}" method="POST" class="">
             @csrf
                 <div class="w-100 d-flex justify-content-center aligin-items-center">
                        <h1>Crear categoria</h1>     
@@ -15,7 +19,7 @@
                     <select   class="form-select" name="niveles_id">
                         <option value=""selected>seleccione el nivel de la categoria</option>
                         @foreach($niveles as $n)
-                           <option value="{{$n->id}}">{{$n->nivel}}</option>
+                           <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
                         @endforeach
                     </select>
                 </div>
