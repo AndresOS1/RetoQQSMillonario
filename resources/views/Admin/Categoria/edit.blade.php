@@ -9,7 +9,7 @@
                        <h1>Editar categoria</h1>     
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center">
-                       <input type="text" class="form-control" placeholder="nombre de la categora" name="nombreCategoria" value="{{$id->nombreCategoria}}">
+                       <input type="text" class="form-control" placeholder="nombre de la categora" name="nombreCategoria" value="{{$categorias->nombreCategoria}}">
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                     <select  class="form-select" name="niveles_id">
@@ -20,7 +20,7 @@
                     </select>
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                         <button class="btn btn-primary">guradar</button>
+                         <button class="btn btn-primary">Editar</button>
                 </div>
         </form>
     </div>
