@@ -22,7 +22,7 @@ class CategoriasController extends Controller
         $categorias = Categorias::all();
         $niveles  = Niveles::all();
     
-        return view('Categorias.index', compact('categorias','niveles'));
+        return view('Admin.categorias.index', compact('categorias','niveles'));
     }
     public function playCategoria(){       
         $categorias=Categorias::select('nombreCategoria')
