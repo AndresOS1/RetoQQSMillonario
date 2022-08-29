@@ -6,6 +6,8 @@ use App\Http\Controllers\PreguntasController;
 use App\Http\Controllers\RespuestasController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\NivelesController;
+use App\Http\Controllers\HomeController;
+
 
 
 
@@ -24,9 +26,7 @@ use App\Http\Controllers\NivelesController;
 Route::get('/', function () {
     return view('homeMillonario');
 });
-Route::get('/admin',function(){
-    return view('Admin.index');
-});
+Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
 Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();
