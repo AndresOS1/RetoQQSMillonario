@@ -41,7 +41,7 @@ class CategoriasController extends Controller
     {
         $niveles = Niveles::all();
 
-        return view('Categorias.create', compact('niveles'));
+        return view('Admin.Categoria.create', compact('niveles'));
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoriasController extends Controller
 
             if($categoria){
                 Alert::success('Categoria Registrada con Exito');
-                return redirect()->route('Categorias.index');
+                return redirect()->route('Categorias.create');
             }else{
                 Alert::error('Error');
                 return redirect()->route('Categorias.create');
