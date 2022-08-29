@@ -16,21 +16,14 @@
              <div class="w-100 d-flex justify-content-center flex-row flex-column aligin-items-center">
                 <h1 class="d-flex justify-content-center text-white">millonario</h1>
              </div>
-             <a href="#" class="btn w-100 justify-content-center">
-                juan camilo yonda   
+             <a href="{{route('Categorias.index')}}" class="btn w-100 justify-content-center bi bi-bookmark-check-fill text-white">
+                Categoras 
              </a>
-             <a href="#" class="btn w-100 justify-content-center">
-                juan camilo yonda   
+             <a href="#" class="btn w-100 justify-content-center bi bi-question-circle-fill text-white">
+                Preguntas
              </a>
-             <a href="#" class="btn w-100 justify-content-center">
-                juan camilo yonda   
-             </a>
-             <a href="#" class="btn w-100 justify-content-center">
-                juan camilo yonda   
-             </a>
-             <a href="#" class="btn w-100 justify-content-center">
-                juan camilo yonda   
-             </a>
+
+
         </div>
         <div class="col-md-9 " style="height: 100vh;">
             <div class="col-12 d-flex justify-content-end p-2 gap-3 ">
