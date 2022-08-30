@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Categorias;
 use App\Models\Preguntas;
+use App\Models\Respuestas;
 
 class PreguntasController extends Controller
 {
@@ -94,6 +95,7 @@ class PreguntasController extends Controller
     {
         $pregunta = Preguntas::find($id);
         $categorias = Categorias::all();
+        $respuestas = Respuestas::all();
         return view('Preguntas.edit', compact('pregunta', 'categorias'));
     }
 
@@ -143,7 +145,7 @@ class PreguntasController extends Controller
      */
     public function destroy($id)
     {
-        $pregunta= Preguntas::findOrFile($id);
+        $pregunta= Preguntas::findOrFail($id);
         $pregunta->delete();
         Alert::warning('Pregunta Elimindada Correctamente');
         return redirect()->route('Preguntas.index');

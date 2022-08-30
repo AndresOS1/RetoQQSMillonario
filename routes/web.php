@@ -26,7 +26,7 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 
-Route::get('/',[HomeController::class, 'verDashboardJuego'])->name('verDashboardJuego');
+Route::get('/',[HomeController::class, 'verDashboardJuego']);
 
 
 
