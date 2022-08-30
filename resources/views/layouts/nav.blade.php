@@ -19,6 +19,9 @@
                         {{ csrf_field() }}
                         <button class="btn bi bi-arrow-bar-left text-warning fs-4" href="#"></button>
                       </form>
+                      @role('admin')
+                          <a href="{{route('admin')}}" class="btn bi bi-gear-fill text-warning d-flex fs-4 align-items-center"></a>
+                      @endrole
                     </div>
                     <div class="d-flex flex-wrap h-100 align-items-center gap-2 ">
                       <p class="text-warning d-flex " >{{Auth()->user()->name}}</p>
