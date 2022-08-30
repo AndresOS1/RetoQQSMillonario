@@ -52,8 +52,8 @@ class TheGameController extends Controller
         $categorias = Categorias::all();
         $preguntas = Preguntas::all();
         $respuestas = Respuestas::all();
-
-        return view('Game.partida', compact('users', 'niveles', 'categorias', 'preguntas', 'respuestas'));
+        $preguntaAleatoria = Preguntas::select('pregunta')->orderByRaw('rand()')->first();
+        return view('Game.partida', compact('users', 'niveles', 'categorias', 'preguntas', 'respuestas','preguntaAleatoria'));
 
     }
 

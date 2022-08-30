@@ -18,13 +18,11 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('categoria_id');
-            $table->unsignedBigInteger('pregunta_id');
             $table->unsignedBigInteger('respuesta_id');
            
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('respuesta_id')->references('id_respuestas')->on('respuestas');
-            $table->foreign('pregunta_id')->references('id_preguntas')->on('preguntas');
             $table->foreign('categoria_id')->references('id_categorias')->on('categorias');
 
             $table->timestamps();
