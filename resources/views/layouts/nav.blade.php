@@ -12,9 +12,18 @@
   <body>
     <div class="col-12 d-flex">
         <nav class="col-12 d-flex flex-row justify-content-end bg-transparent gap-2 shadow-lg">
-                 <div class="col-12 d-flex flex-row justify-content-end gap-2 p-2">
-                    <p class="text-warning">{{Auth()->user()->name}}</p>
-                    <p class="text-warning bi bi-currency-bitcoin">0</p>
+
+                 <div class="col-12 d-flex flex-row justify-content-between  gap-2 p-2">
+                    <div class="d-flex flex-wrap ">
+                      <form id="logout-form" action="{{url('logout') }}" method="POST">
+                        {{ csrf_field() }}
+                        <button class="btn bi bi-arrow-bar-left text-warning fs-4" href="#"></button>
+                      </form>
+                    </div>
+                    <div class="d-flex flex-wrap h-100 align-items-center gap-2 ">
+                      <p class="text-warning d-flex " >{{Auth()->user()->name}}</p>
+                      <p class="text-warning bi bi-currency-bitcoin " >0</p>
+                    </div>
                  </div>
                 <video autoplay muted loop id="videoBG" class="d-fluid">
                     <source src="video/Comp_8.mp4" type="video/mp4">
