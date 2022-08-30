@@ -7,6 +7,7 @@ use App\Http\Controllers\RespuestasController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\NivelesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TheGameController;
 use App\Http\Controllers\Auth\LoginController;
 
 
@@ -34,6 +35,10 @@ Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/juego',[TheGameController::class,'index'])->name('juego');
+
 
 
 
