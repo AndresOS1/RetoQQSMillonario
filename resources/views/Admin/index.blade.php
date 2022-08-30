@@ -24,9 +24,9 @@
              </a>
              
              <div class="d-flex w-100 h-50 align-items-end justify-content-center pb-2" >
-              <form id="logout-form" action="{{ url('logout') }}" method="POST">
+              <form id="logout-form" action="{{url('logout') }}" method="POST">
                 {{ csrf_field() }}
-                  <button type="submit">Logout</button>
+                  <button type="submit" class="btn bi bi-door-closed-fill text-white fs-2" ></button>
               </form>   
               </div>
              </div>
