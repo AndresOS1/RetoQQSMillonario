@@ -33,7 +33,7 @@
                    <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                     <select class="form-select" name="pregunta_id"  required value="{{$respuestas->pregunta_id}}">
                         <option value="{{$respuestas->pregunta_id}}">seleccione la pregunta</option>
-                        @foreach($preguntas as $p)
+                        @foreach($preguntasAll as $p)
                            <option selected value="{{$p->id_preguntas}}">{{$p->pregunta}}</option>
                         @endforeach
                     </select>
@@ -58,27 +58,32 @@
         </div>
         <div class="col-5 justify-content-center d-flex gap-3 flex-column   ">
     
-            <form action="{{'Preguntas.update'}}" method="POST" class="">
-                @csrf
+            <form action="{{'Preguntasupdate',$preguntas->id_preguntas}}" method="POST" class="">
+                @method('PUT')
+                {{ csrf_field() }}
                     <div class="w-100 d-flex justify-content-center aligin-items-center">
                            <h1>Crear Pregunta</h1>     
                     </div>
                     <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                           <input type="text" class="form-control" placeholder="Escribe la pregunta" name="pregunta" required>
+                           <input type="text" class="form-control" placeholder="Escribe la pregunta" name="pregunta" required value="{{$preguntas->pregunta}}">
                     </div>
                     <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
                       <select   class="form-select" name="categoria_id" required>
-                          <option selected>Seleccione la Categoria</option>
+                          {{-- <option selected value="{{$preguntas->categoria_id}}">{{$preguntas->categoria_id}}</option> --}}
                           @foreach($categorias as $c)
-                             <option value="{{$c->id_categorias}}">{{$c->nombreCategoria}}</option>
+                             @if ($preguntas->categoria_id == $c->id_preguntas)
+                                 <option selected value="{{$preguntas->categoria_id}}">{{ $c->nombreCategoria}}</OPTION>
+                             @endif
+                             <option value="{{$c->id_categorias}}">{{$c->nombreCategoria}}--nivel {{$c->niveles_id}}</option>
                           @endforeach
                       </select>
                   </div>
                     <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                             <button class="btn btn-primary">guradar</button>
+                             <button class="btn btn-primary">guardar</button>
                     </div>
             </form>
         </div>
     
     </div>
 </div>
+@endsection
