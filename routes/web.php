@@ -7,6 +7,8 @@ use App\Http\Controllers\RespuestasController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\NivelesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+
 
 
 
@@ -25,16 +27,17 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('homeMillonario');
-});
-Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
+})->name('homeMillonario');
 Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout',[LoginController::class,'logoutt'])->name('cerrarSesion');
 
 
-//Rutas Preguntas
+Route::group(['middleware' => ['role:admin']], function () {
+    //Rutas Preguntas
 
 Route::get('/Preguntas.index',[PreguntasController::class,'index'])->name('Preguntas.index');
 Route::get('/Preguntas.create',[PreguntasController::class,'create'])->name('Preguntas.create');
@@ -44,6 +47,8 @@ Route::put('/actualizarpregunta/{id}',[PreguntasController::class,'update'])->na
 Route::delete('/eliminarpregunta/{id}',[PreguntasController::class,'destroy'])->name('eliminarpregunta');
 
 
+
+Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
 
 //Rutas Respuestas 
 
@@ -74,3 +79,4 @@ Route::post('/Niveles.store',[NivelesController::class,'store'])->name('Niveles.
 Route::get('/editarnivel/{id}',[NivelesController::class,'edit'])->name('editarnivel');
 Route::put('/actualizarnivel/{id}',[NivelesController::class,'update'])->name('Niveles.update');
 Route::delete('/eliminarnivel/{id}',[NivelesController::class,'destroy'])->name('eliminarnivel');
+});

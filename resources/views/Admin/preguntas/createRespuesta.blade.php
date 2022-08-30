@@ -3,8 +3,8 @@
 @include('sweetalert::alert')
 <div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
 <!-- Button trigger modal -->
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Preguntas
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Respuestas
   </button>
   
   <!-- Modal -->
@@ -12,33 +12,34 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear pregunta</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Respuestas a la Pregunta</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="{{route('Respuestas.store')}}" method="POST">
                @csrf
                <div class="w-100 d-flex justify-content-center aligin-items-center flex-wrap">
-                <input type="text" class="form-control" placeholder="respuesta" name="respuesta">
-                 <label for="" class="form-control-label">escribe la respuesta</label>
+                <input type="text" class="form-control"  placeholder="respuesta" name="respuesta">
+                 <label for="" class="form-control-label">Escribe la respuesta</label>
                </div>
 
                <div class="w-100 d-flex justify-content-center aligin-items-center flex-wrap">
                  <select  id="" name="resultado"class="form-select">
-                    <option value="1">correcta</option>
-                    <option value="0">falsa</option>
+                    <option value="1">Correcta</option>
+                    <option value="0">Falsa</option>
                  </select>
                 <label for="" class="form-control-label">Resultado esperado</label>
                </div>
                
                <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                <select   class="form-select" name="pregunta_id">
-                    <option value=""selected>seleccione la pregunta</option>
+                <select class="form-select" name="pregunta_id"  required>
+                    <option>seleccione la pregunta</option>
                     @foreach($preguntas as $p)
-                       <option value="{{$p->id_preguntas}}">{{$p->pregunta}}</option>
+                       <option selected value="{{$p->id_preguntas}}">{{$p->pregunta}}</option>
                     @endforeach
                 </select>
                </div>
+            
 
               
           
@@ -51,6 +52,37 @@
       </div>
     </div>
   </div>
+
+<div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
+    <div class="w-100 d-flex justify-content-start">
+        <a href="{{route('Categorias.index')}}" class="btn bi bi-arrow-left-circle-fill fs-1"></a>
+    </div>
+    <div class="col-5 justify-content-center d-flex gap-3 flex-column   ">
+
+        <form action="{{'Preguntas.store'}}" method="POST" class="">
+            @csrf
+                <div class="w-100 d-flex justify-content-center aligin-items-center">
+                       <h1>Crear Pregunta</h1>     
+                </div>
+                <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
+                       <input type="text" class="form-control" placeholder="Escribe la pregunta" name="pregunta" required>
+                </div>
+                <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
+                  <select   class="form-select" name="categoria_id" required>
+                      <option selected>Seleccione la Categoria</option>
+                      @foreach($categorias as $c)
+                         <option value="{{$c->id_categorias}}">{{$c->nombreCategoria}}</option>
+                      @endforeach
+                  </select>
+              </div>
+                <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
+                         <button class="btn btn-primary">guradar</button>
+                </div>
+        </form>
+    </div>
+
+</div>
+
 
 </div>
 @endsection

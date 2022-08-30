@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Categorias;
 use App\Models\Preguntas;
 
 class PreguntasController extends Controller
@@ -18,8 +19,9 @@ class PreguntasController extends Controller
     {
         
         $preguntas::all();
+        $categorias::all();
 
-        return view('Preguntas.index', compact('preguntas'));
+        return view('Preguntas.index', compact('preguntas', 'categorias'));
     }
 
     /**
@@ -30,7 +32,8 @@ class PreguntasController extends Controller
     public function create()
     {
         $preguntas = Preguntas::all();
-        return view('Admin.preguntas.createRespuesta',compact('preguntas'));
+        $categorias = Categorias::all();
+        return view('Admin.preguntas.createRespuesta',compact('preguntas', 'categorias'));
     }
 
     /**
@@ -43,7 +46,8 @@ class PreguntasController extends Controller
     {
          $validation=Validator::make($request->all(),[
             
-                     'pregunta'=>'required'
+                     'pregunta'=>'required',
+                     'categoria_id' => 'required'
          
         ]);
 
@@ -51,10 +55,11 @@ class PreguntasController extends Controller
         if(!$validation->fails()){
             $pregunta=new Preguntas;
             $pregunta->pregunta = $request->pregunta;
+            $pregunta->categoria_id = $request->categoria_id;
             $pregunta->save();
             if($pregunta){
                 Alert::success('Pregunta Registrada con Exito');
-                return redirect()->route('Preguntas.index');
+                return redirect()->route('Preguntas.create');
             }else{
                 Alert::error('Error');
                 return redirect()->route('Preguntas.create');
@@ -87,7 +92,8 @@ class PreguntasController extends Controller
     public function edit($id)
     {
         $pregunta = Preguntas::find($id);
-        return view('Preguntas.edit', compact('pregunta'));
+        $categorias = Categorias::all();
+        return view('Preguntas.edit', compact('pregunta', 'categorias'));
     }
 
     /**
@@ -101,7 +107,10 @@ class PreguntasController extends Controller
     {
         $validation=Validator::make($request->all(),[
             
-                     'pregunta'=>'required'
+                     'pregunta'=>'required',
+                     'categoria_id' => 'required'
+
+
          
         ]);
 
@@ -109,6 +118,7 @@ class PreguntasController extends Controller
         if(!$validation->fails()){
             $pregunta=Preguntas::find($id);
             $pregunta->pregunta = $request->pregunta;
+            $pregunta->categoria_id = $request->categoria_id;
             $pregunta->save();
             if($pregunta){
                 Alert::success('Pregunta Actualizada con Exito');

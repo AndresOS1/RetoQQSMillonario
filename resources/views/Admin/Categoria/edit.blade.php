@@ -13,10 +13,10 @@
                        <h1>Editar categoria</h1>     
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center">
-                       <input type="text" class="form-control" placeholder="nombre de la categora" name="nombreCategoria" value="{{$categorias->nombreCategoria}}">
+                       <input type="text" class="form-control" placeholder="nombre de la categora" name="nombreCategoria" value="{{$categorias->nombreCategoria}}" required>
                 </div>
                 <div class="w-100 d-flex justify-content-center aligin-items-center mt-3">
-                    <select  class="form-select" name="niveles_id">
+                    <select  class="form-select" name="niveles_id" required>
                         <option value="{{$categorias->niveles_id}}"selected>{{$categorias->niveles_id}}</option>
                         @foreach($niveles as $n)
                            <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>

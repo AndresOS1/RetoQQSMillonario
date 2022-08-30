@@ -26,7 +26,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function authenticated($request , $user){
+        if($user->role=='admin'){
+            return redirect()->route('admin');
+        }else{
+            return redirect()->route('homeMillonario');
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -37,5 +45,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function logoutt(){
+        Auth::logout();
+        Alert::warning('Cierre de Sesión Satisfactorio');
+        return redirect()->route('homeMillonario');
+  }
     
 }

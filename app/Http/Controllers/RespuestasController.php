@@ -31,7 +31,9 @@ class RespuestasController extends Controller
     public function create()
     {
         $preguntas = Preguntas::all();
-        return view('Admin.preguntas.createRespuesta',compact('preguntas'));
+        $respuestas = Respuestas::all();
+
+        return view('Admin.preguntas.createRespuesta',compact('preguntas','respuestas'));
     }
 
     /**
@@ -59,7 +61,7 @@ class RespuestasController extends Controller
             $respuesta->save();
             if($respuesta){
                 Alert::success('Respuesta Registrada con Exito');
-                return redirect()->route('Respuestas.index');
+                return redirect()->route('Respuestas.create');
             }else{
                 Alert::error('Error');
                 return redirect()->route('Respuestas.create');
