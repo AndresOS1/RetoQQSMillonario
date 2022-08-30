@@ -18,10 +18,11 @@ class PreguntasController extends Controller
     public function index()
     {
         
-        $preguntas = Categorias::all();
+        $preguntas = Preguntas::all();
         $categorias = Categorias::all();
 
-        return view('Preguntas.index', compact('preguntas', 'categorias'));
+
+        return view('Admin.preguntas.index', compact('preguntas', 'categorias'));
     }
 
     /**

@@ -5,7 +5,7 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Respuestas
-  </button>
+</button>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,7 +55,7 @@
 
 <div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
     <div class="w-100 d-flex justify-content-start">
-        <a href="{{route('Categorias.index')}}" class="btn bi bi-arrow-left-circle-fill fs-1"></a>
+        <a href="{{route('Preguntas.index')}}" class="btn bi bi-arrow-left-circle-fill fs-1"></a>
     </div>
     <div class="col-5 justify-content-center d-flex gap-3 flex-column   ">
 
