@@ -66,7 +66,7 @@ class CategoriasController extends Controller
 
             if($categoria){
                 Alert::success('Categoria Registrada con Exito');
-                return redirect()->route('Categorias.create');
+                return redirect()->route('Categorias.index');
             }else{
                 Alert::error('Error');
                 return redirect()->route('Categorias.create');
