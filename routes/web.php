@@ -31,14 +31,13 @@ Route::get('/', function () {
 Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();
-Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/logoutt',[LoginController::class,'logoutt'])->name('cerrarSesion');
+
 
 
 Route::group(['middleware' => ['role:admin']], function () {
     //Rutas Preguntas
-
+Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
 Route::get('/Preguntas.index',[PreguntasController::class,'index'])->name('Preguntas.index');
 Route::get('/Preguntas.create',[PreguntasController::class,'create'])->name('Preguntas.create');
 Route::post('/Preguntas.store',[PreguntasController::class,'store'])->name('Preguntas.store');

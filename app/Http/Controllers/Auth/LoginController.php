@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class LoginController extends Controller
 {
@@ -19,23 +21,25 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, HasRoles;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '';
 
-    public function authenticated($request , $user){
-        if($user->role=='admin'){
-            return redirect()->route('admin');
-        }else{
-            return redirect()->route('homeMillonario');
-        }
+    
+
+    public function redirectTo(){
+                if(Auth::user()->hasRole('admin')){
+                    return $this->redirectTo = route('admin') ;
+                    
+                }elseif(Auth::user()->hasRole('user')){
+                    return $this->redirectTo = route('homeMillonario') ;
+                }
     }
-
     /**
      * Create a new controller instance.
      *
@@ -46,10 +50,5 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function logoutt(){
-        Auth::logout();
-        Alert::warning('Cierre de Sesión Satisfactorio');
-        return redirect()->route('homeMillonario');
-  }
     
 }

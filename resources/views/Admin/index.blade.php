@@ -17,23 +17,17 @@
                 <h1 class="d-flex justify-content-center text-white">millonario</h1>
              </div>
              <a href="{{route('Categorias.index')}}" class="btn w-100 justify-content-center bi bi-bookmark-check-fill text-white">
-                Categoras 
+                Categorias 
              </a>
              <a href="{{route('Preguntas.create')}}" class="btn w-100 justify-content-center bi bi-question-circle-fill text-white">
                 Preguntas
              </a>
              
              <div class="d-flex w-100 h-50 align-items-end justify-content-center pb-2" >
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                     onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
+              <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                {{ csrf_field() }}
+                  <button type="submit">Logout</button>
+              </form>   
               </div>
              </div>
 
