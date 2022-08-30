@@ -18,8 +18,8 @@ class PreguntasController extends Controller
     public function index()
     {
         
-        $preguntas::all();
-        $categorias::all();
+        $preguntas = Categorias::all();
+        $categorias = Categorias::all();
 
         return view('Preguntas.index', compact('preguntas', 'categorias'));
     }

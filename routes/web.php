@@ -31,9 +31,9 @@ Route::get('/', function () {
 Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();
-
+Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/logout',[LoginController::class,'logoutt'])->name('cerrarSesion');
+Route::get('/logoutt',[LoginController::class,'logoutt'])->name('cerrarSesion');
 
 
 Route::group(['middleware' => ['role:admin']], function () {
@@ -48,7 +48,7 @@ Route::delete('/eliminarpregunta/{id}',[PreguntasController::class,'destroy'])->
 
 
 
-Route::get('/admin',[HomeController::class, 'verDashboard'])->name('admin');
+
 
 //Rutas Respuestas 
 
