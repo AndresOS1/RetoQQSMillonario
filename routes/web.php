@@ -44,7 +44,7 @@ Route::get('/Preguntas.index',[PreguntasController::class,'index'])->name('Pregu
 Route::get('/Preguntas.create',[PreguntasController::class,'create'])->name('Preguntas.create');
 Route::post('/Preguntas.store',[PreguntasController::class,'store'])->name('Preguntas.store');
 Route::get('/editarpregunta/{id}',[PreguntasController::class,'edit'])->name('editarpregunta');
-Route::put('/actualizarpregunta/{id}',[PreguntasController::class,'update'])->name('Preguntas.update');
+Route::put('/actualizarpregunta/{id}',[PreguntasController::class,'update'])->name('Preguntasupdate');
 Route::delete('/eliminarpregunta/{id}',[PreguntasController::class,'destroy'])->name('eliminarpregunta');
 
 
