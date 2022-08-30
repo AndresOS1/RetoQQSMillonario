@@ -95,7 +95,7 @@ class PreguntasController extends Controller
     {
         $pregunta = Preguntas::find($id);
         $categorias = Categorias::all();
-        $respuestas = Respuestas::all();
+        $respuestas = Respuestas::find($id);
         return view('Preguntas.edit', compact('pregunta', 'categorias'));
     }
 
