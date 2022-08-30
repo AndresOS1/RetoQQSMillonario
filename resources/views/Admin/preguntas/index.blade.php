@@ -5,7 +5,7 @@
         <div class="col-12">
             <a class="btn bi bi-clipboard2-plus fs-1x" href="{{route('Categorias.create')}}"></a>
         </div>
-        @if($categorias->count())
+        @if($preguntas->count())
         <table class="table table-striped table-">
             <thead class="table-responsive">
                 <tr>
@@ -20,15 +20,15 @@
                         <td>{{$p->id_preguntas}}</td>
                          <td>{{$p->pregunta}}</td> 
                          @foreach ($categorias as $c)
-                           @if ($p->categoria_id == $c->id_categorias)
+                            @if ($p->categoria_id == $c->id_categorias)
                               <td>{{ $c->nombreCategoria}}</td>
-                           @endif
-                         @endforeach
+                            @endif
+                         @endforeach    
                         <td class="d-flex justify-content-end">
-                            <a href="{{-- {{route('editarpregunta',$p->id_pregutas)}} --}}" class="btn bi bi-pencil-fill"></a>    
+                            <a href="{{route('editarpregunta',$p->id_preguntas)}}" class="btn bi bi-pencil-fill"></a>    
                         </td>
                         <td>
-                            <form action="{{-- {{route('eliminarpregunta',$p->id_preguntas)}} --}}" method="POST">
+                            <form action="{{route('eliminarpregunta',$p->id_preguntas)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn bi bi-trash3-fill"></button>
