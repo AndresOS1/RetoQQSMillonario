@@ -57,7 +57,7 @@ Route::get('/Respuestas.index',[RespuestasController::class,'index'])->name('Res
 Route::get('/Respuestas.create',[RespuestasController::class,'create'])->name('Respuestas.create');
 Route::post('/Respuestas.store',[RespuestasController::class,'store'])->name('Respuestas.store');
 Route::get('/editarrespuesta/{id}',[RespuestasController::class,'edit'])->name('editarrespuesta');
-Route::put('/actualizarrespuesta/{id}',[RespuestasController::class,'update'])->name('Respuestas.update');
+Route::put('/actualizarrespuesta/{id}',[RespuestasController::class,'update'])->name('Respuestasupdate');
 Route::delete('/eliminarrespuesta/{id}',[RespuestasController::class,'destroy'])->name('eliminarrespuesta');
 
 

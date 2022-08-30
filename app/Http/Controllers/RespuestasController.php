@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Respuestas;
 use App\Models\Preguntas;
+use App\Models\Categorias;
 
 
 class RespuestasController extends Controller
@@ -32,8 +33,8 @@ class RespuestasController extends Controller
     {
         $preguntas = Preguntas::all();
         $respuestas = Respuestas::all();
-
-        return view('Admin.preguntas.createRespuesta',compact('preguntas','respuestas'));
+        $categorias=Categorias::all();
+        return redirect()->route('Preguntas.create');
     }
 
     /**
@@ -94,7 +95,7 @@ class RespuestasController extends Controller
     {
         $respuesta = Respuestas::find($id);
         $preguntas = Respuestas::all();
-        return view('Respuestas.edit', compact('respuesta', 'preguntas'));  
+        return redirect()->route('editarpregunta',$respuesta);  
     }
 
     /**

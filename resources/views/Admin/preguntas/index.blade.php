@@ -3,7 +3,7 @@
 @include('sweetalert::alert')
     <div class="col-12 d-flex justify-content-center aligin-items-center flex-column align-items-center">
         <div class="col-12">
-            <a class="btn bi bi-clipboard2-plus fs-1x" href="{{route('Categorias.create')}}"></a>
+            <a class="btn bi bi-clipboard2-plus fs-1x" href="{{route('Preguntas.create')}}"></a>
         </div>
         @if($preguntas->count())
         <table class="table table-striped table-">
