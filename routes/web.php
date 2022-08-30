@@ -25,9 +25,11 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('homeMillonario');
-})->name('homeMillonario');
+
+Route::get('/',[HomeController::class, 'verDashboardJuego'])->name('verDashboardJuego');
+
+
+
 Route::get('/playCategoria',[CategoriasController::class,'playCategoria'])->name('playCategoria');
 
 Auth::routes();

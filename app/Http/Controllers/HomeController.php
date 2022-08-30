@@ -32,4 +32,11 @@ class HomeController extends Controller
 
         return view('Admin.index');
     }
+
+    public function verDashboardJuego(){
+
+
+        
+        return view('homeMillonario');
+    }
 }
