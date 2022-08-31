@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id('id_preguntas');
-
             $table->string('pregunta');
-            $table->unsignedBigInteger('categoria_id');
-
-            $table->foreign('categoria_id')->references('id_categorias')->on('categorias');
+            // $table->unsignedBigInteger('categoria_id');
+            // $table->foreign('categoria_id')->references('id_categorias')->on('categorias');
             $table->timestamps();
         });
     }
