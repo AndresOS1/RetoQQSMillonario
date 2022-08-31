@@ -47,6 +47,13 @@ class CategoriasController extends Controller
         return view('Admin.Categoria.create', compact('niveles'));
     }
 
+
+    public function byLevel($id){
+
+
+        return Categorias::where('niveles_id', $id)->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
