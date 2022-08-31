@@ -6,7 +6,7 @@
            <select name="" id="" class="form-select">
             <option value="" selected>nieveles</option>
             @foreach ($niveles as $n)
-               <option value="{{$n->id_niveles}}">{{$n->niveles}}</option>
+               <option value="{{$n->id_niveles}}">{{$n->nivel}}</option>
              @endforeach
            </select>
           
