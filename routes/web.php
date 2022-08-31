@@ -37,7 +37,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/juego',[TheGameController::class,'create'])->name('juego');
+Route::get('/juego',[TheGameController::class,'juegoCategorias'])->name('juego');
+Route::post('/guardarpartida',[TheGameController::class,'store'])->name('guardarpartida');
+Route::get('/historialdejuegos',[TheGameController::class,'historialDeJuegos'])->name('historialdejuegos');
+
 
 
 
