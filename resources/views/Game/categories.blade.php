@@ -12,9 +12,14 @@
           
 
          </form>
-         <select name="" id="">
-            <option value="" selected>categorias</option>
-         </select>
+         <form action="{{route('all')}}" method="post" id="form1">
+            @csrf
+            <select name="" id="">
+                <option value="" selected>categorias</option>
+                <option value="1">uno</option>
+             </select>
+         </form>
+
          <select name="" id="">
             <option value="" selected>pregunta</option>
          </select>
@@ -22,4 +27,16 @@
             <option value="" selected>respuestas</option>
         </select>
      </div>
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+     <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: '/all',
+                method:'post',
+                data:$("#form1").serialize(),
+            }).done(function(res){
+                alert(res);
+            });
+        });
+     </script>
 @endsection
