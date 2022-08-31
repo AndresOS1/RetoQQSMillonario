@@ -12,17 +12,14 @@
           
 
          </form>
-         <select name="" id="select-category" class="mt-5">
-            <option value="" selected>Seleccione la Categoria</option>
+         <select name="" id="">
+            <option value="" selected>categorias</option>
          </select>
-         <select name="" id="select-question" class="mt-5">
+         <select name="" id="">
             <option value="" selected>pregunta</option>
          </select>
          <select name="" id="" class="mt-5">
             <option value="" selected>respuestas</option>
         </select>
      </div>
-
-
-     <script src="{{asset('js/select-dinamico.js')}}" type="text/javascript"></script>
 @endsection

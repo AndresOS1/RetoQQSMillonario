@@ -42,7 +42,7 @@ Route::post('/guardarpartida',[TheGameController::class,'store'])->name('guardar
 Route::get('/historialdejuegos',[TheGameController::class,'historialDeJuegos'])->name('historialdejuegos');
 
 
-
+Route::post('/all',[TheGameController::class,'all'])->name('all');
 
 
 Route::group(['middleware' => ['role:admin']], function () {
