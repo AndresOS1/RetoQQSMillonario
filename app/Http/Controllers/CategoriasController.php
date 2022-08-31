@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Niveles;
 use App\Models\Categorias;
-
+use Paginator;
 
 
 class CategoriasController extends Controller
@@ -17,12 +17,15 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categorias::all();
+        $busqueda=$request->buscar;
+        $categorias=Categorias::where('nombreCategoria','LIKE','%'.$busqueda.'%')
+        ->paginate(7);
+        // $categorias = Categorias::all();
         $niveles  = Niveles::all();
     
-        return view('Admin.Categoria.index', compact('categorias','niveles'));
+        return view('Admin.Categoria.index', compact('categorias','niveles','busqueda'));
     }
     public function playCategoria(){       
         $categorias=Categorias::select('nombreCategoria')

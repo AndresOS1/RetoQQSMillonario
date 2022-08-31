@@ -2,11 +2,18 @@
 @section('content')
 @include('sweetalert::alert')
 <div class="col-12 d-flex justify-content-center aligin-items-center flex-row flex-column">
-    <div class="col-12">
-        <a class="btn bi bi-clipboard2-plus fs-1x" href="{{route('Categorias.create')}}"></a>
+    <div class="col-12 d-flex align-items-center">
+        <a class="btn bi bi-clipboard2-plus fs-2 d-flex " href="{{route('Categorias.create')}}"></a>
+          <form action="{{route('Categorias.index')}}" method="GET" >
+            @csrf
+            <div class="input-group mb-3 d-flex align-items-center mt-3">
+                <input type="text" class="form-control" placeholder="buscar categorias" aria-label="Recipient's username" aria-describedby="basic-addon2" name="buscar">
+                <span class="input-group-text" id="basic-addon2"><i class="bi bi-search-heart-fill"></i></span>
+            </div>
+        </form>
     </div>
     @if($categorias->count())
-    <table class="table table-striped table-">
+    <table class="table table-striped    table-hover">
         <thead class="table-responsive">
             <tr>
                 <th>ID</th>
