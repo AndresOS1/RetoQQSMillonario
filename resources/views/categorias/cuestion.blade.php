@@ -19,7 +19,7 @@
 
 
                       <div class="col-12 img-fluid d-flex justify-content-center">
-                          <span class="bi bi-arrow-right-circle-fill flecha opacity-50"></span>
+                          <a class="bi bi-arrow-right-circle-fill flecha opacity-50" href="{{route('juego')}}"></a>
                       </div>
 
                     </div>
