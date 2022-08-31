@@ -21,22 +21,22 @@ class TheGameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function historialDeJuegos()
     {
-        // $users = User::all();
-        // $niveles = Niveles::all();
-        // $categorias = Categorias::all();
-        // $preguntas = Preguntas::all();
-        // $respuestas = Respuestas::all();
-        // $games = Game::all();
+        $users = User::all();
+        $niveles = Niveles::all();
+        $categorias = Categorias::all();
+        $preguntas = Preguntas::all();
+        $respuestas = Respuestas::all();
+        $games = Game::all();
 
-        // return view('Game.historialdeJuego', compact('users', 'niveles', 'categorias', 'preguntas','respuestas','games'));
+        return view('Game.historialdeJuego', compact('users', 'niveles', 'categorias', 'preguntas','respuestas','games'));
 
 
-        // SELECT * FROM preguntas ORDER BY rand() LIMIT 1;
+        // // SELECT * FROM preguntas ORDER BY rand() LIMIT 1;
 
-        $preguntaAleatoria = Preguntas::select('pregunta')->orderByRaw('rand()')->take(1)->get();
-        return $preguntaAleatoria;
+        // $preguntaAleatoria = Preguntas::select('pregunta')->orderByRaw('rand()')->take(1)->get();
+        // return $preguntaAleatoria;
     }
 
     /**
@@ -44,7 +44,7 @@ class TheGameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function juegoCategorias()
     {
         
         $users = User::all();
@@ -52,8 +52,8 @@ class TheGameController extends Controller
         $categorias = Categorias::all();
         $preguntas = Preguntas::all();
         $respuestas = Respuestas::all();
-        $preguntaAleatoria = Preguntas::select('pregunta')->orderByRaw('rand()')->first();
-        return view('Game.partida', compact('users', 'niveles', 'categorias', 'preguntas', 'respuestas','preguntaAleatoria'));
+        // $preguntaAleatoria = Preguntas::select('pregunta')->orderByRaw('rand()')->first();
+        return view('Game.categories', compact('users', 'niveles', 'categorias', 'preguntas', 'respuestas'));
 
     }
 
@@ -67,16 +67,17 @@ class TheGameController extends Controller
     {
         
             $validation=Validator::make($request->all(),[
-                        'user_id'=>'required',
-                        'categoria_id'=>'required',
-                        'pregunta_id'=>'required',
-                        'respuesta_id'=>'required',
+                        'niveles_id'    =>'required',
+                        'categoria_id'  =>'required',
+                        'pregunta_id'   =>'required',
+                        'respuesta_id'  =>'required',
             ]);
             if(!$validation->fails()){
 
-                $game =new Game;
+                $game =  new Game;
 
                 $game->user_id          = auth()->user()->id;
+                $game->niveles_id       = $request->niveles_id;
                 $game->categoria_id     = $request->categoria_id;
                 $game->pregunta_id      = $request->pregunta_id;
                 $game->respuesta_id     = $request->respuesta_id;
@@ -100,7 +101,7 @@ class TheGameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function historialDeJuego($id)
     {
         //
     }
