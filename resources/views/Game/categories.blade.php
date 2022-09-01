@@ -12,14 +12,26 @@
           
 
          </form>
-         <select name="" id="">
-            <option value="" selected>categorias</option>
+         <select name="" id="select-category" class="mt-5">
+            <option value="" selected>Seleccione la Categoria</option>
+            {{-- @foreach ($categorias as $c)
+               <option value="{{$c->id_categoria}}">{{$c->nombreCategoria}}-{{$c->niveles_id}}</option>
+             @endforeach --}}
          </select>
-         <select name="" id="">
+         <select name="" id="select-question" class="mt-5">
             <option value="" selected>pregunta</option>
+            {{-- @foreach ($preguntas as $p)
+               <option value="{{$p->id_preguntas}}">{{$p->pregunta}}</option>
+             @endforeach --}}
          </select>
-         <select name="" id="" class="mt-5">
+         <select name="" id="select-responses" class="mt-5">
             <option value="" selected>respuestas</option>
+            {{-- @foreach ($respuestas as $r)
+               <option value="{{$r->id_respuesats}}">{{$r->respuesta}}</option>
+             @endforeach --}}
         </select>
      </div>
+
+
+     <script src="{{asset('js/select-dinamico.js')}}"></script>
 @endsection

@@ -26,6 +26,14 @@ class PreguntasController extends Controller
         return view('Admin.preguntas.index', compact('preguntas', 'categorias'));
     }
 
+
+    public function byCategoriesLevels($id){
+
+
+        return Preguntas::where('categoria_id', $id)->get();
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

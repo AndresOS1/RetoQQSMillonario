@@ -37,6 +37,12 @@ class RespuestasController extends Controller
         return redirect()->route('Preguntas.create');
     }
 
+    public function byQuestionsResponses($id){
+
+
+        return Respuestas::where('pregunta_id', $id)->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
